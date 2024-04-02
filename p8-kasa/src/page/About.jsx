@@ -1,8 +1,8 @@
 import React from 'react';
 
-function APropos() {
+function About() {
   // Votre code pour HomePage ici
   return <div>A Propos Page Content</div>;
 }
 
-export default APropos;
+export default About;

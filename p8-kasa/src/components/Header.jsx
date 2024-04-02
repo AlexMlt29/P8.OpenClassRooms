@@ -4,13 +4,13 @@ import logo from "../logo/LOGO.png";
 function Header() {
   return (
     <header>
-      <div className="test">
-        <img src={logo} alt="Kosa" className="logo" />
+      <div className="topbar">
+        <img src={logo} alt="Logo Kosa" className="logo" />
         <nav className="navigation">
-          <a href="/" className="nav-link">
+          <a href="/" className="nav-home">
             ACCUEIL
           </a>
-          <a href="/about" className="nav-link">
+          <a href="/about" className="nav-about">
             À PROPOS
           </a>
         </nav>

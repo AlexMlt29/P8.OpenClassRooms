@@ -1,8 +1,8 @@
 import React from 'react';
 
-function FicheLogement() {
+function HousingSheet() {
   // Votre code pour HomePage ici
   return <div>Fiche Logement Page Content</div>;
 }
 
-export default FicheLogement;
+export default HousingSheet;
