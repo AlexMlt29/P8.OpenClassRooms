@@ -32,7 +32,7 @@
   padding: 20px;
   justify-content: space-between;
 }
-/****** BODY *******/
+/****** BODY / HOMEPAGE *******/
 .menu {
   gap: 22px;
   padding-left: 20px;
@@ -41,10 +41,10 @@
   flex-direction: column;
 }
 
-/****** BODY / BANNER *******/
+/****** BODY / HOMEPAGE / BANNER *******/
 .banner {
   position: relative;
-  width: 335px;
+  width: 100%;
   height: 111px;
   display: flex;
   align-items: center;
@@ -79,7 +79,7 @@
   padding-left: 16px;
   margin: 0px;
 }
-/****** BODY / CARDS *******/
+/****** BODY / HOMEPAGE / CARDS *******/
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -133,4 +133,133 @@
   text-align: center;
   padding: 15px;
   margin: 0px;
+}
+/****** BODY / HousingSheet *******/
+.house {
+  display: flex;
+  height: 513px;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.house-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #FF6060;
+  font-size: 18px;
+  margin: 0px;
+  margin-top: 10px;
+  width: 280px;
+}
+
+.house-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 550;
+  color: black;
+  font-size: 14px;
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.house-tag {
+  width: 84px;
+  height: 18px;
+  background-color: #FF6060;
+  border-radius: 5px;
+  z-index: 0;
+}
+
+.tag-text {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-weight: 700;
+  font-size: 10px;
+  margin: 0px;
+  width: 84px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 98px;
+  height: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.rating-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: end;
+}
+
+.rating-text {
+  font-family: 'Montserrat', sans-serif;
+  color: #FF6060;
+  font-weight: 500;
+  font-size: 12px;
+  width: 93px;
+  height: 33px;
+  margin: 0px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.rating-circle {
+  display: flex;
+  width: 32px;
+  height: 32px;
+}
+
+.description {
+  width: 100%;
+  height: 80px;
+  padding-top: 23px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.rollmenu {
+  width: 315px;
+  height: 10px;
+  background-color: #FF6060;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.rollmenu-text {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  margin: 0px;
+}
+
+.rollmenu-image {
+  width: 16px;
+  height: 9.14px;
 }
