@@ -17,13 +17,13 @@
 .nav-home {
   text-decoration: none;
   color: black;
-  border-bottom: 1px solid;
 }
 
 .nav-about {
   text-decoration: none;
   color: black;
 }
+
 
 .topbar {
   display: flex;
@@ -237,12 +237,13 @@
   height: 80px;
   padding-top: 23px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 19px;
   flex-direction: column;
 }
 
 .rollmenu {
-  width: 315px;
+  width: 94.2%;
   height: 10px;
   background-color: #FF6060;
   border-radius: 5px;
@@ -262,4 +263,96 @@
 .rollmenu-image {
   width: 16px;
   height: 9.14px;
+}
+/****** BODY / Caroussel *******/
+#banner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+  height: 255px;
+	position: relative;
+}
+
+.banner-img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	object-fit: cover;
+	object-position: center;
+}
+
+#banner .arrow {
+	position: absolute;
+}
+#banner .arrow_left {
+	left: 10px;
+}
+#banner .arrow_right {
+	right: 10px;
+}
+
+.dots { 
+	position: absolute;
+	bottom: 40px;
+	display: flex;
+}
+
+.dot {
+	margin-inline: 5px;
+	width: 13px;
+	height: 13px;
+	background-color: #ffffff00;
+	border: 3px solid #fff;
+	border-radius: 100%;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);;
+}
+
+.dot_selected {
+	background-color: #fff;
+}
+/****** BODY / Error *******/
+.error {
+  padding: 20px;
+  display: flex;
+  width: 90%;
+  height: 603px;
+  flex-direction: column;
+}
+
+.error-title {
+  font-family: 'Montserrat', sans-serif;
+  color: #FF6060;
+  font-weight: 700;
+  font-size: 96px;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 80px;
+}
+
+.error-text {
+  font-family: 'Montserrat', sans-serif;
+  color: #FF6060;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  margin: 50px;
+}
+
+.error-nav {
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+/****** BODY / About *******/
+.about {
+  padding: 20px;
+  width: 90%;
+  height: 310px;
 }
