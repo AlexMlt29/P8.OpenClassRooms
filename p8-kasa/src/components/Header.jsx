@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../logo/LOGO.png";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -7,12 +8,8 @@ function Header() {
       <div className="topbar">
         <img src={logo} alt="Logo Kosa" className="logo" />
         <nav className="navigation">
-          <a href="/" className="nav-home">
-            ACCUEIL
-          </a>
-          <a href="/about" className="nav-about">
-            À PROPOS
-          </a>
+          <NavLink to="/" className="nav-home" >ACCUEIL</NavLink>
+          <NavLink to="/about" className="nav-home" >À PROPOS</NavLink>
         </nav>
       </div>
     </header>

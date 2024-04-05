@@ -24,6 +24,9 @@
   color: black;
 }
 
+.navigation a.active {
+  text-decoration: underline;
+}
 
 .topbar {
   display: flex;
@@ -296,14 +299,14 @@
 
 .dots { 
 	position: absolute;
-	bottom: 40px;
+	bottom: 20px;
 	display: flex;
 }
 
 .dot {
 	margin-inline: 5px;
-	width: 13px;
-	height: 13px;
+	width: 6px;
+	height: 6px;
 	background-color: #ffffff00;
 	border: 3px solid #fff;
 	border-radius: 100%;
