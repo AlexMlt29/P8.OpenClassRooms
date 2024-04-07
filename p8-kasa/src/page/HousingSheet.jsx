@@ -1,90 +1,72 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import arrow_left from "../logo/arrow_left.png";
-import arrow_right from "../logo/arrow_right.png";
+import Carousel from "../components/Carousel";
 import staron from "../logo/star-on.png";
 import staroff from "../logo/star-off.png";
-import circle from "../logo/circle.png";
-import vector from "../logo/Vector.png";
-import SmallHouse from "../logo/SmallHouse.png";
-import House1 from "../logo/house1.png";
-
-const slides = [
-  {
-    image: SmallHouse,
-  },
-  {
-    image: House1,
-  },
-];
+import vector from "../logo/vector.png";
+import data from "../data/file.json";
+import { useParams } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 function HousingSheet() {
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
-  const handleArrowClick = (direction) => {
-    setCurrentSlideIndex((prevIndex) => {
-      let newIndex = prevIndex + direction;
-      if (newIndex >= slides.length) newIndex = 0;
-      if (newIndex < 0) newIndex = slides.length - 1;
-      return newIndex;
-    });
-  };
+  let { id } = useParams();
+  let accommodation = data.find(item => item.id === id);
 
-  const generateDots = () => {
-    return slides.map((_, index) => (
-      <div
-        key={index}
-        className={`dot ${index === currentSlideIndex ? "dot_selected" : ""}`}
-        onClick={() => setCurrentSlideIndex(index)}
-      ></div>
-    ));
+  if (!accommodation) {
+    return <Navigate to="/error" replace />;
+  }
+
+  function renderStars(rating) {
+    const stars = [];
+  
+    for (let i = 0; i < rating; i++) {
+      stars.push(<img src={staron} alt="star on" key={i} />);
+    }
+  
+    for (let i = rating; i < 5; i++) {
+      stars.push(<img src={staroff} alt="star off" key={i} />);
+    }
+  
+    return stars;
   };
 
   return (
     <div>
       <Header />
       <section className="house">
-        <div id="banner">
-          <img className="banner-img" src={slides[currentSlideIndex].image} alt="Intérieur d'un salon lumineux, comportant une table à manger, une commode en bois. Une œuvre d'art colorée est accrochée au-dessus de la commode." />
-          <img src={arrow_left} className="arrow arrow_left" onClick={() => handleArrowClick(-1)} alt="arrow_left" />
-          <img src={arrow_right} className="arrow arrow_right" onClick={() => handleArrowClick(1)} alt="arrow_right" />
-          <div className="dots">{generateDots()}</div>
-        </div>
-        <h2 className="house-title">Paris Center, on the romantic Canal Saint-Martin</h2>
-        <p className="house-text">Paris, Île-de-France</p>
+        <Carousel pictures={accommodation.pictures} />
+        <h2 className="house-title">{accommodation.title}</h2>
+        <p className="house-text">{accommodation.location}</p>
         <div className="tag-container">
-          <div className="house-tag">
-            <h3 className="tag-text">Cozy</h3>
-          </div>
-          <div className="house-tag">
-            <h3 className="tag-text">Canal</h3>
-          </div>
-          <div className="house-tag">
-            <h3 className="tag-text">Paris 10</h3>
-          </div>
+          {accommodation.tags.map((tag, index) => (
+            <div className="house-tag" key={index}>
+              <h3 className="tag-text">{tag}</h3>
+            </div>
+          ))}
         </div>
         <div className="rating">
-          <div className="stars">
-            <img src={staron} />
-            <img src={staron} />
-            <img src={staron} />
-            <img src={staroff} />
-            <img src={staroff} />
-          </div>
+          <div className="stars">{renderStars(parseInt(accommodation.rating))}</div>
           <div className="rating-content">
-            <p className="rating-text">Alexandre Dumas</p>
-            <img src={circle} className="rating-circle" />
+            <p className="rating-text">{accommodation.host.name}</p>
+            <img src={accommodation.host.picture} className="rating-circle" alt="Host" />
           </div>
         </div>
         <div className="description">
           <div className="rollmenu">
             <p className="rollmenu-text">Description</p>
-            <img src={vector} className="rollmenu-image" />
+            <img src={vector} className="rollmenu-image" alt="Description toggle" />
+            {/* <p>{accommodation.description}</p> */}
           </div>
           <div className="rollmenu">
             <p className="rollmenu-text">Équipements</p>
-            <img src={vector} className="rollmenu-image" />
+            <img src={vector} className="rollmenu-image" alt="Equipments toggle" />
+            {/* <ul>
+              {accommodation.equipments.map((equipment, index) => (
+                <li key={index}>{equipment}</li>
+              ))}
+            </ul> */}
           </div>
         </div>
       </section>

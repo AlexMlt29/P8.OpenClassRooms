@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../logo/LOGO-white.png";
+import logo from "../logo/kasa-white.png";
 
 function Footer() {
   return (
