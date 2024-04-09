@@ -13,7 +13,7 @@ function HomePage() {
         <Banner />
         <div className="cards">
           {data.map((item) => (
-            <Link to={`/HousingSheet/${item.id}`} className="cards-container" key={item.id}>
+            <Link to={`/${item.id}`} className="cards-container" key={item.id}>
               <h2 className="cards-text">{item.title}</h2>
             </Link>
           ))}

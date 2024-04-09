@@ -2,12 +2,12 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Carousel from "../components/Carousel";
+import Colapse from "../components/Colapse";
 import staron from "../logo/star-on.png";
 import staroff from "../logo/star-off.png";
-import vector from "../logo/vector.png";
 import data from "../data/file.json";
-import { useParams } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
+
 
 function HousingSheet() {
 
@@ -15,7 +15,7 @@ function HousingSheet() {
   let accommodation = data.find(item => item.id === id);
 
   if (!accommodation) {
-    return <Navigate to="/error" replace />;
+    return <Navigate to="/Error" replace />;
   }
 
   function renderStars(rating) {
@@ -50,25 +50,10 @@ function HousingSheet() {
           <div className="stars">{renderStars(parseInt(accommodation.rating))}</div>
           <div className="rating-content">
             <p className="rating-text">{accommodation.host.name}</p>
-            <img src={accommodation.host.picture} className="rating-circle" alt="Host" />
+            <img src={accommodation.host.picture} className="rating-circle" alt="Circle" />
           </div>
         </div>
-        <div className="description">
-          <div className="rollmenu">
-            <p className="rollmenu-text">Description</p>
-            <img src={vector} className="rollmenu-image" alt="Description toggle" />
-            {/* <p>{accommodation.description}</p> */}
-          </div>
-          <div className="rollmenu">
-            <p className="rollmenu-text">Équipements</p>
-            <img src={vector} className="rollmenu-image" alt="Equipments toggle" />
-            {/* <ul>
-              {accommodation.equipments.map((equipment, index) => (
-                <li key={index}>{equipment}</li>
-              ))}
-            </ul> */}
-          </div>
-        </div>
+        <Colapse />
       </section>
       <Footer />
     </div>
