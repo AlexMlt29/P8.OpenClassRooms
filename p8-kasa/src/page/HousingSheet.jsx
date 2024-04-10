@@ -6,13 +6,11 @@ import Colapse from "../components/Colapse";
 import staron from "../logo/star-on.png";
 import staroff from "../logo/star-off.png";
 import data from "../data/file.json";
-import { useParams, Navigate } from 'react-router-dom';
-
+import { useParams, Navigate } from "react-router-dom";
 
 function HousingSheet() {
-
   let { id } = useParams();
-  let accommodation = data.find(item => item.id === id);
+  let accommodation = data.find((item) => item.id === id);
 
   if (!accommodation) {
     return <Navigate to="/Error" replace />;
@@ -20,17 +18,17 @@ function HousingSheet() {
 
   function renderStars(rating) {
     const stars = [];
-  
+
     for (let i = 0; i < rating; i++) {
       stars.push(<img src={staron} alt="star on" key={i} />);
     }
-  
+
     for (let i = rating; i < 5; i++) {
       stars.push(<img src={staroff} alt="star off" key={i} />);
     }
-  
+
     return stars;
-  };
+  }
 
   return (
     <div>
@@ -53,7 +51,16 @@ function HousingSheet() {
             <img src={accommodation.host.picture} className="rating-circle" alt="Circle" />
           </div>
         </div>
-        <Colapse />
+        <Colapse title="Description">
+          <p>{accommodation.description}</p>
+        </Colapse>
+        <Colapse title="Équipements">
+          <div className="equipments-display">
+            {accommodation.equipments.map((equipement, index) => (
+              <span key={index}>{equipement}</span>
+            ))}
+          </div>
+        </Colapse>
       </section>
       <Footer />
     </div>

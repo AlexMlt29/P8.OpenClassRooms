@@ -21,7 +21,7 @@ function Banner() {
 
   return (
     <div className="banner">
-      <Link to="/">
+      <Link to="">
         <img src={imageSrc} alt={imageAlt} className="banner-image" />
         <div className={className}></div>
         {bannerText && <h1 className="banner-text">{bannerText}</h1>}

@@ -1,80 +1,32 @@
 import React, { useState } from "react";
 import vector from "../logo/vector.png";
-import data from "../data/file.json";
-import { useParams } from "react-router-dom";
 
-function Colapse() {
-  let { id } = useParams();
-  let accommodation = data.find((item) => item.id === id);
+function Colapse({ title, children }) {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const [rotatedStates, setRotatedStates] = useState({});
-  const [expandedStates, setExpandedStates] = useState({});
-
-  const handleImageClick = (imageId) => {
-    setRotatedStates((prevState) => {
-      const isRotated = prevState[imageId];
-      const newRotatedStates = {
-        ...prevState,
-        [imageId]: !isRotated,
-      };
-      return newRotatedStates;
-    });
-
-    setExpandedStates((prevState) => {
-      const isExpanded = prevState[imageId];
-      const newExpandedStates = {
-        ...prevState,
-        [imageId]: !isExpanded,
-      };
-      return newExpandedStates;
-    });
+  const handleImageClick = () => {
+    setIsExpanded(!isExpanded);
   };
 
-  function getImageStyle(imageId) {
-    let style = {
-      transition: "transform 300ms ease",
-    };
-
-    if (rotatedStates[imageId]) {
-      style.transform = "rotate(-180deg)";
-    } else {
-      style.transform = "rotate(0deg)";
-    }
-
-    return style;
-  }
-
-  const isExpanded = (menuId) => {
-    return expandedStates[menuId];
-  };
+  const getImageStyle = () => ({
+    transform: isExpanded ? "rotate(-180deg)" : "rotate(0deg)",
+    transition: "transform 600ms ease",
+  });
 
   return (
     <div className="rollmenu">
-      <div className={`rollmenu-header ${isExpanded("description") ? "no-margin" : ""}`}>
-        <p className="rollmenu-text">Description</p>
-        <img src={vector} className="rollmenu-image" onClick={() => handleImageClick("description")} style={getImageStyle("description")} alt="Description toggle" />
+      <div className={`rollmenu-header ${isExpanded ? "no-margin" : ""}`}>
+        <p className="rollmenu-title">{title}</p>
+        <img src={vector} className="rollmenu-image" onClick={handleImageClick} style={getImageStyle()} alt={`${title} toggle`} />
       </div>
 
-      {isExpanded("description") && <p className={`rollmenu-content ${isExpanded("description")}`}>{accommodation.description}</p>}
-
-      {isExpanded("description") && <div className="rollmenu-spacing"></div>}
-
-      <div className={`rollmenu-header ${isExpanded("equipments") ? "no-margin" : ""}`}>
-        <p className="rollmenu-text">Équipements</p>
-        <img src={vector} className="rollmenu-image" onClick={() => handleImageClick("equipments")} style={getImageStyle("equipments")} alt="Equipments toggle" />
-      </div>
-
-      {isExpanded("equipments") && (
-        <div className={`rollmenu-content ${isExpanded("equipments")}`}>
-          {accommodation.equipments.map((equipment, index) => (
-            <span className="equipments-display" key={index}>
-              {equipment}
-            </span>
-          ))}
+      {isExpanded && (
+        <div className="rollmenu-content">
+          {children}
         </div>
       )}
 
-      {isExpanded("equipments") && <div className="rollmenu-spacing"></div>}
+      {isExpanded && <div className="rollmenu-spacing"></div>}
     </div>
   );
 }
