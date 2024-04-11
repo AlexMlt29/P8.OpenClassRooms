@@ -4,11 +4,11 @@ import vector from "../logo/vector.png";
 function Colapse({ title, children }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleImageClick = () => {
+  const imageClick = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const getImageStyle = () => ({
+  const imageStyle = () => ({
     transform: isExpanded ? "rotate(-180deg)" : "rotate(0deg)",
     transition: "transform 600ms ease",
   });
@@ -17,14 +17,14 @@ function Colapse({ title, children }) {
     <div className="rollmenu">
       <div className={`rollmenu-header ${isExpanded ? "no-margin" : ""}`}>
         <p className="rollmenu-title">{title}</p>
-        <img src={vector} className="rollmenu-image" onClick={handleImageClick} style={getImageStyle()} alt={`${title} toggle`} />
+        <img src={vector} className="rollmenu-image" onClick={imageClick} style={imageStyle()} alt={`${title} toggle`} />
       </div>
 
-      {isExpanded && (
+      <div className={`rollmenu-content-parent ${isExpanded ? "rollmenu-content-show" : ""}`}>
         <div className="rollmenu-content">
           {children}
         </div>
-      )}
+      </div>
 
       {isExpanded && <div className="rollmenu-spacing"></div>}
     </div>

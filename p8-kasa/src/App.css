@@ -6,12 +6,16 @@ a {
 p {
   margin: 0px;
 }
-
 /****** HEADER *******/
 .header {
   display: flex;
   width: 100%;
   box-sizing: border-box;
+}
+
+.logo {
+  width: 145px;
+  height: 46.88px;
 }
 
 .navigation {
@@ -26,11 +30,9 @@ p {
 .nav-home {
   text-decoration: none;
   color: black;
-}
-
-.nav-about {
-  text-decoration: none;
-  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .navigation a.active {
@@ -46,13 +48,10 @@ p {
 }
 /****** BODY / HOMEPAGE *******/
 .menu {
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
 }
-
 /****** BODY / HOMEPAGE / BANNER *******/
 .banner {
   position: relative;
@@ -93,7 +92,7 @@ p {
 
 .banner-text {
   width: 209px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: white;
   font-size: 24px;
@@ -102,12 +101,16 @@ p {
   margin: 0px;
 }
 /****** BODY / HOMEPAGE / CARDS *******/
+.background-cards {
+  background-color: white;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   width: 100%;
-  height: 843px;
+  height: auto;
   gap: 26px;
 }
 
@@ -124,7 +127,7 @@ p {
   width: 150px;
   text-align: left;
   padding: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: white;
   font-size: 18px;
@@ -146,15 +149,17 @@ p {
 }
 
 .footer-text {
+  display: flex;
   width: 120px;
   height: 46px;
   font-size: 12px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: white;
-  text-align: center;
+  justify-content: center;
   padding: 15px;
   margin: 0px;
+  text-align: center;
 }
 /****** BODY / HousingSheet *******/
 .house {
@@ -166,9 +171,9 @@ p {
 }
 
 .house-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  color: #FF6060;
+  color: #ff6060;
   font-size: 18px;
   margin: 0px;
   margin-top: 10px;
@@ -176,7 +181,7 @@ p {
 }
 
 .house-text {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 550;
   color: black;
   font-size: 14px;
@@ -188,13 +193,13 @@ p {
 .house-tag {
   width: 84px;
   height: 18px;
-  background-color: #FF6060;
+  background-color: #ff6060;
   border-radius: 5px;
   z-index: 0;
 }
 
 .tag-text {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: white;
   font-weight: 700;
   font-size: 9px;
@@ -223,12 +228,22 @@ p {
 .stars {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 98px;
   height: 18px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.star-on {
+  width: 13.41px;
+  height: 13px;
+}
+
+.star-off {
+  width: 13.41px;
+  height: 13px;
 }
 
 .rating-content {
@@ -239,8 +254,8 @@ p {
 }
 
 .rating-text {
-  font-family: 'Montserrat', sans-serif;
-  color: #FF6060;
+  font-family: "Montserrat", sans-serif;
+  color: #ff6060;
   font-weight: 500;
   font-size: 12px;
   width: 93px;
@@ -269,17 +284,19 @@ p {
   width: 94%;
   margin: 0px;
   height: 10px;
-  background-color: #FF6060;
+  background-color: #ff6060;
   border-radius: 5px;
   display: flex;
   padding: 10px;
   justify-content: space-between;
   position: relative;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .rollmenu-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: white;
   font-weight: 700;
   font-size: 13px;
@@ -295,13 +312,17 @@ p {
 }
 
 .rollmenu-content-parent {
-  height: 0;
+  max-height: 0;
   overflow: hidden;
-  transition: height 600ms ease;
+  opacity: 0;
+  transition: max-height 400ms, opacity 400ms ease-out;
+  width: 100%;
 }
 
 .rollmenu-content-show {
-  height: 171px;
+  max-height: 500px;
+  opacity: 1;
+  width: 100%;
 }
 
 .rollmenu-image {
@@ -325,53 +346,63 @@ p {
 }
 /****** BODY / carousel *******/
 #carousel {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   height: 255px;
-	position: relative;
+  position: relative;
 }
 
 .carousel-image {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-	object-fit: cover;
-	object-position: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  object-position: center;
   border-radius: 10px;
 }
 
 #carousel .arrow {
-	position: absolute;
+  position: absolute;
 }
 #carousel .arrow-left {
-	left: 10px;
+  left: 10px;
 }
 #carousel .arrow-right {
-	right: 10px;
+  right: 10px;
 }
 
-.dots { 
-	position: absolute;
-	bottom: 20px;
-	display: flex;
+.arrow-right {
+  width: 13px;
+  height: 21px;
+}
+
+.arrow-left {
+  width: 13px;
+  height: 21px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
 }
 
 .dot {
-	margin-inline: 5px;
-	width: 6px;
-	height: 6px;
-	background-color: #ffffff00;
-	border: 3px solid #fff;
-	border-radius: 100%;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);;
+  margin-inline: 5px;
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff00;
+  border: 3px solid #fff;
+  border-radius: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .dot_selected {
-	background-color: #fff;
+  background-color: #fff;
 }
 /****** BODY / Error *******/
 .error {
@@ -383,8 +414,8 @@ p {
 }
 
 .error-title {
-  font-family: 'Montserrat', sans-serif;
-  color: #FF6060;
+  font-family: "Montserrat", sans-serif;
+  color: #ff6060;
   font-weight: 700;
   font-size: 96px;
   text-align: center;
@@ -393,8 +424,8 @@ p {
 }
 
 .error-text {
-  font-family: 'Montserrat', sans-serif;
-  color: #FF6060;
+  font-family: "Montserrat", sans-serif;
+  color: #ff6060;
   font-weight: 500;
   font-size: 18px;
   text-align: center;
@@ -402,13 +433,14 @@ p {
 }
 
 .error-nav {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: black;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 14px;
   text-align: center;
   margin-top: 100px;
   margin-bottom: 80px;
+  text-decoration: underline;
 }
 /****** BODY / About *******/
 .about {
@@ -416,4 +448,271 @@ p {
   padding-bottom: 0px;
   width: 90%;
   height: auto;
+}
+/* Desktop devices (Desktop, less/equal than 1440px) */
+@media screen and (min-width: 1440px) {
+  /****** HEADER *******/
+  .topbar {
+    padding: 91.5px;
+    height: 68px;
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+
+  .logo {
+    width: 210.32px;
+    height: 68px;
+  }
+
+  .nav-home {
+    font-size: 24px;
+  }
+  /****** BODY / HOMEPAGE / BANNER *******/
+  .menu {
+    padding: 91.5px;
+    padding-top: 40px;
+  }
+
+  .banner {
+    height: 223px;
+    justify-content: center;
+    margin-bottom: 52px;
+  }
+
+  .dark-background {
+    left: 0px;
+  }
+
+  .light-background {
+    left: 0px;
+  }
+
+  .banner-image {
+    height: 223px;
+    left: 0px;
+  }
+
+  .banner-text {
+    width: 733px;
+    height: 68px;
+    font-size: 48px;
+    padding-left: 0px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+  }
+  /****** BODY / HOMEPAGE / CARDS *******/
+  .background-cards {
+    width: 92%;
+    height: auto;
+    background-color: #f6f6f6;
+    border-radius: 25px;
+    display: flex;
+    padding: 50px;
+  }
+
+  .cards {
+    flex-direction: row;
+    width: 100%;
+    gap: 50px;
+  }
+
+  .cards-container {
+    display: flex;
+    width: 30.41%;
+    height: 255px;
+  }
+  /****** FOOTER *******/
+  .footer-text {
+    width: 513px;
+    font-size: 24px;
+    padding: 15px;
+    margin: 0px;
+    gap: 30px;
+    position: relative;
+    top: 40px;
+  }
+  /****** BODY / About *******/
+  .about {
+    padding: 91.5px;
+    width: 87.32%;
+    padding-top: 40px;
+    padding-bottom: 18px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /****** BODY / carousel *******/
+  #carousel {
+    height: 415px;
+  }
+
+  #carousel .arrow-left {
+    left: 20px;
+  }
+  #carousel .arrow-right {
+    right: 20px;
+  }
+
+  .arrow-right {
+    width: 46.68px;
+    height: 79px;
+  }
+
+  .arrow-left {
+    width: 46.68px;
+    height: 79px;
+  }
+  /****** BODY / HousingSheet *******/
+  .house {
+    padding: 91.5px;
+    padding-bottom: 20px;
+  }
+
+  .rollmenu-header {
+    height: 32px;
+    margin-bottom: 38px;
+  }
+
+  .rollmenu-title {
+    font-size: 24px;
+  }
+
+  .rollmenu-image {
+    width: 24px;
+    height: 13.71px;
+  }
+
+  .rollmenu-content {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .house-title {
+    width: 100%;
+    font-size: 36px;
+    margin-top: 40px;
+  }
+
+  .house-text {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .house-tag {
+    width: 115px;
+    height: 25px;
+    border-radius: 10px;
+  }
+
+  .tag-text {
+    font-size: 12.5px;
+    width: 115px;
+    height: 25px;
+  }
+
+  .rating {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 170px;
+    margin-top: 10px;
+    justify-content: end;
+    margin-bottom: 23px;
+    gap: 20px;
+  }
+
+  .rating-content {
+    margin-top: 30px;
+  }
+
+  .rating-text {
+    font-size: 18px;
+    height: 52px;
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+
+  .rating-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 30px;
+  }
+
+  .stars {
+    width: 150px;
+    height: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  } 
+
+  .star-on {
+    width: 24px;
+    height: 24px;
+  }
+
+  .star-off {
+    width: 24px;
+    height: 24px;
+  }
+
+  .house-display {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .content-display {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .colapse-display {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    align-items: normal;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  .rollmenu-header {
+    width: 97.5%;
+  }
+
+  .rollmenu-header.no-margin {
+    width: 97.5%;
+    margin-bottom: 0;
+  }
+
+  .with-display {
+    width: 84.86%;
+  }
+
+  .text-display {
+    width: 90%;
+  }
+
+  .rollmenu-spacing {
+    height: 40px;
+  }
+  /****** BODY / Error *******/
+  .error {
+    padding: 72px;
+    height: auto;
+  }
+
+  .error-title {
+    font-size: 288px;
+  }
+
+  .error-text {
+    font-size: 36px;
+  }
+
+  .error-nav {
+    font-size: 18px;
+  }
 }
