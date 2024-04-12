@@ -27,6 +27,10 @@ p {
   align-items: center;
 }
 
+.navigation-desktop {
+  display: none;
+}
+
 .nav-home {
   text-decoration: none;
   color: black;
@@ -36,6 +40,10 @@ p {
 }
 
 .navigation a.active {
+  text-decoration: underline;
+}
+
+.navigation-desktop a.active {
   text-decoration: underline;
 }
 
@@ -467,6 +475,19 @@ p {
   .nav-home {
     font-size: 24px;
   }
+
+  .navigation {
+    display: none;
+  }
+  
+  .navigation-desktop {
+    display: flex;
+    gap: 26px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    align-items: center;
+  }
   /****** BODY / HOMEPAGE / BANNER *******/
   .menu {
     padding: 91.5px;
@@ -563,6 +584,11 @@ p {
   .arrow-left {
     width: 46.68px;
     height: 79px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
   }
   /****** BODY / HousingSheet *******/
   .house {

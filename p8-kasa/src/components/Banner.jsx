@@ -4,7 +4,7 @@ import logo from '../logo/banner-1.png';
 import mountain from '../logo/banner-2.png';
 
 function Banner() {
-  const location = useLocation();
+  let location = useLocation();
 
   let imageSrc, imageAlt, bannerText, className;
   if (location.pathname === '/') {
@@ -15,8 +15,8 @@ function Banner() {
   } else if (location.pathname === '/about') {
     imageSrc = mountain;
     imageAlt = "Côte rocheuse embrumée avec des vagues s'écrasant sur le rivage, entourée d'arbres résistants au vent";
-    className = "light-background";
     bannerText = "";
+    className = "light-background";
   }
 
   return (

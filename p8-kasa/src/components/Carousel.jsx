@@ -3,11 +3,11 @@ import arrowleft from "../logo/arrow-left.png";
 import arrowright from "../logo/arrow-right.png";
 
 function Carousel({ pictures }) {
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  let [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
-  const slides = pictures.map(picture => ({ image: picture }));
+  let slides = pictures.map(picture => ({ image: picture }));
 
-  const handleArrowClick = (direction) => {
+  let arrowClick = (direction) => {
     setCurrentSlideIndex((prevIndex) => {
       let newIndex = prevIndex + direction;
       if (newIndex >= slides.length) newIndex = 0;
@@ -16,7 +16,7 @@ function Carousel({ pictures }) {
     });
   };
 
-  const generateDots = () => {
+  let generateDots = () => {
     return slides.map((_, index) => (
       <div key={index} className={`dot ${index === currentSlideIndex ? "dot_selected" : ""}`} onClick={() => setCurrentSlideIndex(index)}></div>
     ));
@@ -25,8 +25,8 @@ function Carousel({ pictures }) {
   return (
     <div id="carousel">
       <img className="carousel-image" src={slides[currentSlideIndex].image} alt="Slide" />
-      <img src={arrowleft} className="arrow arrow-left" onClick={() => handleArrowClick(-1)} alt="Previous" />
-      <img src={arrowright} className="arrow arrow-right" onClick={() => handleArrowClick(1)} alt="Next" />
+      <img src={arrowleft} className="arrow arrow-left" onClick={() => arrowClick(-1)} alt="Previous" />
+      <img src={arrowright} className="arrow arrow-right" onClick={() => arrowClick(1)} alt="Next" />
       <div className="dots">{generateDots()}</div>
     </div>
   );
