@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import vector from "../logo/vector.png";
 
 function Colapse({ title, children }) {
-  let [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  let imageClick = () => {
+  const imageClick = () => {
     setIsExpanded(!isExpanded);
   };
 
-  let imageStyle = () => ({
+  const imageStyle = () => ({
     transform: isExpanded ? "rotate(-180deg)" : "rotate(0deg)",
     transition: "transform 600ms ease",
   });

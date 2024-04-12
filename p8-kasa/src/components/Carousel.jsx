@@ -3,11 +3,11 @@ import arrowleft from "../logo/arrow-left.png";
 import arrowright from "../logo/arrow-right.png";
 
 function Carousel({ pictures }) {
-  let [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
-  let slides = pictures.map(picture => ({ image: picture }));
+  const slides = pictures.map(picture => ({ image: picture }));
 
-  let arrowClick = (direction) => {
+  const arrowClick = (direction) => {
     setCurrentSlideIndex((prevIndex) => {
       let newIndex = prevIndex + direction;
       if (newIndex >= slides.length) newIndex = 0;
@@ -16,7 +16,7 @@ function Carousel({ pictures }) {
     });
   };
 
-  let generateDots = () => {
+  const generateDots = () => {
     return slides.map((_, index) => (
       <div key={index} className={`dot ${index === currentSlideIndex ? "dot_selected" : ""}`} onClick={() => setCurrentSlideIndex(index)}></div>
     ));

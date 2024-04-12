@@ -9,15 +9,15 @@ import data from "../data/file.json";
 import { useParams, Navigate } from "react-router-dom";
 
 function HousingSheet() {
-  let { id } = useParams();
-  let accommodation = data.find((item) => item.id === id);
+  const { id } = useParams();
+  const accommodation = data.find((item) => item.id === id);
 
   if (!accommodation) {
     return <Navigate to="/Error" replace />;
   }
 
   function renderStars(rating) {
-    const stars = [];
+    let stars = [];
 
     for (let i = 0; i < rating; i++) {
       stars.push(<img src={staron} className="star-on" alt="star on" key={i} />);

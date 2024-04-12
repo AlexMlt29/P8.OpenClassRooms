@@ -4,7 +4,7 @@ import logo from '../logo/banner-1.png';
 import mountain from '../logo/banner-2.png';
 
 function Banner() {
-  let location = useLocation();
+  const location = useLocation();
 
   let imageSrc, imageAlt, bannerText, className;
   if (location.pathname === '/') {
