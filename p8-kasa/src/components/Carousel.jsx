@@ -17,9 +17,15 @@ function Carousel({ pictures }) {
   };
 
   const generateDots = () => {
-    return slides.map((_, index) => (
-      <div key={index} className={`dot ${index === currentSlideIndex ? "dot_selected" : ""}`} onClick={() => setCurrentSlideIndex(index)}></div>
-    ));
+    const dots = [];
+    for (let index = 0; index < slides.length; index++) {
+      let className = 'dot';
+      if (index === currentSlideIndex) {
+        className += ' dot_selected';
+      }
+      dots.push(<div key={index} className={className} onClick={() => setCurrentSlideIndex(index)}></div>);
+    }
+    return dots;
   };
 
   return (

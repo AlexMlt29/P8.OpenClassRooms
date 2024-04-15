@@ -6,6 +6,7 @@ import data from "../data/file.json";
 import { Link } from "react-router-dom";
 
 function HomePage() {
+
   return (
     <div>
       <Header />
@@ -15,7 +16,10 @@ function HomePage() {
           <div className="cards">
             {data.map((item) => (
               <Link to={`/${item.id}`} className="cards-container" key={item.id}>
-                <h2 className="cards-text">{item.title}</h2>
+                <div className="imagetext-container">
+                  <img className="cards-images" src={item.pictures[0]} alt={item.title} />
+                  <h2 className="cards-text">{item.title}</h2>
+                </div>
               </Link>
             ))}
           </div>
