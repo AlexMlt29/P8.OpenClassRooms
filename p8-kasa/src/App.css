@@ -629,6 +629,7 @@ p {
   .house {
     padding: 91.5px;
     padding-bottom: 20px;
+    padding-top: 32px;
   }
 
   .rollmenu-header {
@@ -766,14 +767,19 @@ p {
   }
 
   .error-title {
-    font-size: 288px;
+    font-size: 318px;
+    margin-top: -15px;
+    padding-right: 3px;
   }
 
   .error-text {
-    font-size: 36px;
+    font-size: 41px;
+    margin: 16px;
   }
 
   .error-nav {
-    font-size: 18px;
+    font-size: 20px;
+    margin-top: 124px;
+    margin-bottom: 69px;
   }
 }
